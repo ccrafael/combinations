@@ -1,0 +1,5 @@
+if(EXISTS "/home/fali/projects/combinations/build/combinations/combinations_test[1]_tests.cmake")
+  include("/home/fali/projects/combinations/build/combinations/combinations_test[1]_tests.cmake")
+else()
+  add_test(combinations_test_NOT_BUILT combinations_test_NOT_BUILT)
+endif()

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/combinations_test.dir/combinations.cpp.o CMakeFiles/combinations_test.dir/test.cpp.o -o combinations_test  ../lib/libgtest_main.a ../lib/libgtest.a 
