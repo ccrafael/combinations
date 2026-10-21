@@ -12,7 +12,6 @@ impl<T: Clone> Combinations<T> {
         }
 
         let n = arr.len() ;
-        print!("n = {}\n", n);
 
         let mut c = vec![0; combination_len + 3];
 
@@ -47,7 +46,6 @@ impl<T: Clone> Combinations<T> {
         }
 
         let current = self.visit(&self.c);
-        print!("before = {:?}", self.c);
         self.j = 1;
         while self.c[self.j] + 1 == self.c[self.j + 1] {
             self.c[self.j] = self.j - 1;
@@ -57,7 +55,6 @@ impl<T: Clone> Combinations<T> {
         if self.j <= self.combination_len {
             self.c[self.j] = self.c[self.j] + 1;
         }
-        print!("after = {:?}\n", self.c);
 
 
         current
