@@ -24,8 +24,9 @@ public:
 				
 			this->combination_len = combination_len;
 			this->arr = arr;
-			
-			this->c = vector<int>(combination_len + 2);
+		
+		        // alg uses c1 not c0 and c_t+2 <- 0	
+			this->c = vector<int>(combination_len + 3);
 			int n = arr.size();
 
 			for (int j = 1; j <= combination_len; ++j) {
@@ -42,7 +43,7 @@ public:
 	
 	vector<T> visit(vector<int> indices) {
 		vector<T> current;
-    for (int i = 1; i < indices.size() - 1; ++i) {
+    for (int i = 1; i < indices.size() - 2; ++i) {
         current.push_back(arr[indices[i]]);
     }
     return current;

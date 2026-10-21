@@ -11,8 +11,10 @@ impl<T: Clone> Combinations<T> {
             panic!("combination len can not be <= 0");
         }
 
-        let n = arr.len();
-        let mut c = vec![0; combination_len + 2];
+        let n = arr.len() ;
+        print!("n = {}\n", n);
+
+        let mut c = vec![0; combination_len + 3];
 
         for j in 1..=combination_len {
             c[j] = j - 1;
@@ -33,7 +35,7 @@ impl<T: Clone> Combinations<T> {
 
     fn visit(&self, indices: &[usize]) -> Vec<T> {
         let mut current = Vec::new();
-        for i in 1..indices.len() - 1 {
+        for i in 1..indices.len() - 2 {
             current.push(self.arr[indices[i]].clone());
         }
         current
@@ -45,19 +47,18 @@ impl<T: Clone> Combinations<T> {
         }
 
         let current = self.visit(&self.c);
-
+        print!("before = {:?}", self.c);
         self.j = 1;
         while self.c[self.j] + 1 == self.c[self.j + 1] {
             self.c[self.j] = self.j - 1;
             self.j += 1;
-            if self.j > self.combination_len {
-                break;
-            }
         }
 
         if self.j <= self.combination_len {
-            self.c[self.j] += 1;
+            self.c[self.j] = self.c[self.j] + 1;
         }
+        print!("after = {:?}\n", self.c);
+
 
         current
     }
